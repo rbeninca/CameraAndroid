@@ -15,6 +15,19 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.MyCamera"
         tools:targetApi="31" >
+
+        <!-- Aqui é onde o FileProvider deve ser definido -->
+        <provider
+            android:name="androidx.core.content.FileProvider"
+            android:authorities="${applicationId}.provider"
+            android:exported="false"
+            android:grantUriPermissions="true">
+            <meta-data
+                android:name="android.support.FILE_PROVIDER_PATHS"
+                android:resource="@xml/file_paths" />
+        </provider>
+
+        <!-- Outros componentes da aplicação -->
         <activity
             android:name=".MainActivity"
             android:exported="true" >
